@@ -30,6 +30,25 @@ import org.apache.log4j.Logger;
  *
  * The maximum number of supersteps is configurable.
  */
+
+
+
+/**
+ * Outlines.
+ *
+ * 1. Understand data type of vertex and edge.
+ * BasicComputation<I, V, E, M>
+ * I - Vertex id
+ * V - Vertex data/value
+ * E - Edge data/value
+ * M - Message type
+ *
+ * 也就是说, 一个compute节点可以有这些属性. 包括它的id, 其上的值, 临边的值, 以及节点间互相发送信息的类型
+ *
+ *
+ * 2. Understand message and their communication based on edges.
+ * See line 80
+ */
 public class SimplePageRank extends BasicComputation<LongWritable,
   DoubleWritable, FloatWritable, DoubleWritable> {
   /** Default number of supersteps */
@@ -41,6 +60,14 @@ public class SimplePageRank extends BasicComputation<LongWritable,
   private static final Logger LOG =
     Logger.getLogger(SimplePageRank.class);
 
+
+
+  /**
+   * compute() is core API of Giraph, which you implement compute logic of the vertex of your graph.
+   *
+   * compute() 是计算的核心部分. 
+   * compute的对象是图中的节点, 这应证了 think like a vertex.
+   */
   @Override
   public void compute(
       Vertex<LongWritable, DoubleWritable, FloatWritable> vertex,
@@ -50,6 +77,7 @@ public class SimplePageRank extends BasicComputation<LongWritable,
     }
     if (getSuperstep() >= 1) {
       double sum = 0;
+      // messages are those received from its neighbors
       for (DoubleWritable message : messages) {
         sum += message.get();
       }
