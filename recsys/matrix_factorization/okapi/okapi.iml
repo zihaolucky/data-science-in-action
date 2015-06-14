@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Ali_intern/giraph-1.1.0-hadoop2-for-hadoop-2.5.1" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/giraph-1.1.0-hadoop2-for-hadoop-2.5.1" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/mapreduce/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/mapreduce/lib" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/hdfs/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/hdfs/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/hdfs/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/hdfs/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/common/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/common/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/common/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/common/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/tools/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/tools/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/tools/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Ali_intern/hadoop-2.6.0/share/hadoop/tools/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
