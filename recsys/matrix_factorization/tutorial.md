@@ -31,14 +31,55 @@ we solve this objective function with stochastic gradient descent:
 note that each latent vector get update information from its neighbors, see subscript of the sum over symbol. That means think each latent vector as a vertex, the user-item relation as a edge and edge's value is rating R(u,i) given by that user.
 
 
+let's learn from the code from [okapi](https://github.com/grafos-ml/okapi)
+
+public final void compute(Vertex<CfLongId, FloatMatrixWritable, FloatWritable> vertex, final Iterable<FloatMatrixMessage> messages) {
+    
+```
+    double rmsePartialSum = 0d;
+    float l2norm = 0f;
+
+    if (tolerance>0) {
+        // create new object because we're going to operate the old one.
+        oldValue = new FloatMatrixWritable(vertex.getValue().getRows(),
+            vertex.getValue().getColumns(), vertex.getValue().data);
+    }
+
+
+    for (FloatMatrixMessage msg : messages) {
+        // get rating
+        float rating = vertex.getEdgeValue(msg.getSenderId()).get();
+
+        // update latent factor
+        // this process do exactly what stochastic gradient descent do.
+        // iterate samples and update parameters one at a time.
+        updateValue(vertex.getValue(), msg.getFactors(), rating,
+            minRating, maxRating, lamda, gamma);
+    }
+
+    // calculate new error for rmse, for aggregator
+    for (FloatMatrixMessage msg : messages) {
+        float predicted = vertex.getValue().dot(msg.getFactors());
+        float rating = vertex.getEdgeValue(msg.getSenderId()).get();
+        predicted = Math.min(predicted, maxRating);
+        predicted = Math.max(predicted, minRating);
+        float err = predicted - rating;
+        rmsePartialSum += (err*err);
+    }
+
+    aggregate(RMSE_AGGREGATOR, new DoubleWritable(rmsePartialSum));
+
+    vertex.voteToHalt();
+```
+
 
 ### what's pratical issues you might have?
 
-[TODO]
+As you see in the code, the vertex we are working on must receive messages from its neighbor. If its neighbor locate in another machine, this message must be sent by network traffic, which can be quite slow if the data are high skew. Few vertex with high degree would have a longer time to deal with messages from its neighbors. 
 
-My college 
+When the rating matrix are huge, it becomes infeasible due to the issue of heavy traffic workload.
 
-Scalable collaborative filtering on top of Apache Giraph, best pratice from Facebook.
+The engineer from Facebook also have this problem, but they come up with a novel way to train this model. Just go to reading materials!
 
 
 
