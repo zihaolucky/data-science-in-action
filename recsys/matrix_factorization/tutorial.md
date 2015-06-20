@@ -33,9 +33,9 @@ note that each latent vector get update information from its neighbors, see subs
 
 let's learn from the code from [okapi](https://github.com/grafos-ml/okapi)
 
+```
 public final void compute(Vertex<CfLongId, FloatMatrixWritable, FloatWritable> vertex, final Iterable<FloatMatrixMessage> messages) {
     
-```
     double rmsePartialSum = 0d;
     float l2norm = 0f;
 
@@ -70,6 +70,8 @@ public final void compute(Vertex<CfLongId, FloatMatrixWritable, FloatWritable> v
     aggregate(RMSE_AGGREGATOR, new DoubleWritable(rmsePartialSum));
 
     vertex.voteToHalt();
+
+}
 ```
 
 
@@ -81,7 +83,19 @@ When the rating matrix are huge, it becomes infeasible due to the issue of heavy
 
 The engineer from Facebook also have this problem, but they come up with a novel way to train this model. Just go to reading materials!
 
+#### Fast training with entended Giraph framework
 
+See slides below:
+
+![common_approach](https://github.com/zihaolucky/data-science-in-action/blob/master/recsys/matrix_factorization/common_approach.png)
+
+![optimize](https://github.com/zihaolucky/data-science-in-action/blob/master/recsys/matrix_factorization/optimize.png)
+
+
+
+#### Fast recommendation
+
+![fast_rec](https://github.com/zihaolucky/data-science-in-action/blob/master/recsys/matrix_factorization/fast_rec.png)
 
 ## Further discussion, reading materials
 
