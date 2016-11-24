@@ -1,4 +1,4 @@
-# data science in action
+# Data science in action
 
 
 ## Motivation and Objective.
